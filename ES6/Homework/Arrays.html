@@ -24,7 +24,17 @@
       }
     }
 
+    function handlePosts() {
+      const posts = [
+        { id: 23, title: 'Daily JS News' },
+        { id: 52, title: 'Code Refactor City' },
+        { id: 105, title: 'The Brightest Ruby' }
+      ];
 
+      posts.forEach(function(post) {
+        savePost(post);
+      });
+    }
 
     // map ----------
     // 1. 請回傳一個陣列只包含 height, ex: ['34px', '54px', '83px']
@@ -34,7 +44,9 @@
       { height: '83px', width: '75px' },
     ];
 
-    let heights;
+    let heights = images.map(function(image) {
+      return image.height;
+    });
 
     // 2. 請回傳一個陣列包含三個速度(距離/時間 = 速度)
     const trips = [
@@ -43,14 +55,17 @@
       { distance: 59, time: 25 }
     ];
 
-    let speeds;
-
+    let speeds = trips.map(function(trip) {
+      return trip.distance/trip.time;
+    });
 
     // filter -----------
     // 1. 請回傳一個陣列只包含大於50的數字
     const numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95];
 
-    let filteredNumbers;
+    let filteredNumbers = numbers.filter(function(number) {
+      return number > 50;
+    });
 
     // 2. 請回傳一個陣列只包含有管理權限(admin)的user
     const users = [
@@ -61,9 +76,9 @@
       { id: 5, admin: true },
     ];
 
-    let filteredUsers;
-
-
+    let filteredUsers = users.filter(function(user) {
+      return user.admin === true;
+    });
 
     // reduce ------------
     // 1.請算出所有距離的總和
@@ -73,7 +88,9 @@
       { distance: 1 }
     ];
 
-    var totalDistance;
+    var totalDistance = trips.reduce(function(sum, trip) {
+      return sum += trip.distance;
+    }, 0);
 
     // 2.請回傳一個物件，總計各個type的數量{ sitting: 3, standing: 4 }
     var desks = [
@@ -84,7 +101,15 @@
       { type: 'standing' }
     ];
 
-
+    var totalType = desks.reduce(function(obj, desk) {
+      if (desk.type == 'sitting') {
+        obj.sitting++;
+      }
+      if (desk.type == 'standing') {
+        obj.standing++;
+      }
+      return obj;
+    }, {sitting: 0, standing: 0});
   </script>
 </body>
 

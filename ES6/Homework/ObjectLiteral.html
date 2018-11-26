@@ -19,6 +19,14 @@
       };
     }
 
+    const canvasDimensions = (width, initialHeight) => {
+      const height = initialHeight * 9 / 16;
+      return {
+        width,
+        height
+      };
+    }
+
     // 2.
     const color = 'red';
 
@@ -28,6 +36,16 @@
         return 'Vroom!';
       },
       getColor: function () {
+        return this.color;
+      }
+    };
+
+    const Car = {
+      color,
+      drive() {
+        return 'Vroom!';
+      },
+      getColor() {
         return this.color;
       }
     };

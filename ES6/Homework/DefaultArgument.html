@@ -23,12 +23,22 @@
       return a + b;
     }
 
+    function sum(a = 0, b = 0) {
+      return a + b;
+    }
+
     // 2. 使用預設參數
     function addOffset(style) {
       if (!style) {
         style = {};
       }
 
+      style.offset = '10px';
+
+      return style;
+    }
+
+    function addOffset(style = {}) {
       style.offset = '10px';
 
       return style;

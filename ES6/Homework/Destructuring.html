@@ -22,6 +22,10 @@
       return title === 'Engineer' && department === 'IT';
     }
 
+    function isEngineer({ title, department }) {
+      return title === 'Engineer' && department === 'IT';
+    }
+
     // 2. array destructruring
     // 使用array的map方法 回傳一個新的陣列包含三個物件
     // ex: [{ subject: 'Math'}, {time: '2PM'}, {teacher: 'Mrs.Larsen'}]
@@ -32,7 +36,9 @@
       ['Math', '11:30AM', 'Mrs. Vitalis']
     ];
 
-    const classesAsObject;
+    const classesAsObject = classes.map(function([ subject, time, teacher ]) {
+      return { subject: subject, time: time, teacher: teacher };
+    });
     
   </script>
 </body>
